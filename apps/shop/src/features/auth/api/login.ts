@@ -1,25 +1,19 @@
-import {
-	GoogleSignin,
-	statusCodes,
-} from "@react-native-google-signin/google-signin";
+import { GoogleSignin, User } from "@react-native-google-signin/google-signin";
+import { LoginCredentialsDTO, UserResponse } from "../types";
+import authApi from "./auth-api";
 
-export const googleLogin = async () => {
-	try {
-		await GoogleSignin.hasPlayServices();
+export const googleSignIn = async (): Promise<User> => {
+	await GoogleSignin.hasPlayServices();
 
-		const userInfo = await GoogleSignin.signIn();
+	const userInfo = await GoogleSignin.signIn();
 
-		return userInfo;
-	} catch (error) {
-		//@ts-ignore
-		if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-			//@ts-ignore
-		} else if (error.code === statusCodes.IN_PROGRESS) {
-			//@ts-ignore
-		} else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-			// play services not available or outdated
-		} else {
-			// some other error happened
-		}
-	}
+	return userInfo;
+};
+
+export const login = async (
+	credentials: LoginCredentialsDTO
+): Promise<UserResponse> => {
+	const response = await authApi.post("/login", credentials);
+
+	return response.data;
 };
