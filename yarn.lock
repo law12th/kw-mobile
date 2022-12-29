@@ -6465,6 +6465,11 @@ react-native@0.70.5:
     whatwg-fetch "^3.0.0"
     ws "^6.1.4"
 
+react-query-auth@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-query-auth/-/react-query-auth-1.1.0.tgz#dcd2d94a1d08fb317488096ae1889ad287738de6"
+  integrity sha512-YUZ6y7ajU+umpc7Raticrbweq/U/PhBydQ1rphh16RZ6HOuom6pZ/+4x90kbf3/VFalgjbXSDlDXecVPtVmsow==
+
 react-query@^3.39.2:
   version "3.39.2"
   resolved "https://registry.yarnpkg.com/react-query/-/react-query-3.39.2.tgz#9224140f0296f01e9664b78ed6e4f69a0cc9216f"
